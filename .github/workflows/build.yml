@@ -23,7 +23,8 @@ jobs:
        sudo apt-get install -yq bison libpng-dev pkg-config
        git clone https://github.com/gbdev/rgbds.git
        cd rgbds
-       make install
+       make
+       sudo make install
        cd ..
     - name: Build rom
       run: make
