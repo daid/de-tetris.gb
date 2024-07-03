@@ -108,6 +108,8 @@ Reset::
 	ld a, h ; ld a, HIGH(wShadowOAM)
 	ldh [hOAMHigh], a
 
+	call audioInit
+
 	; `Intro`'s bank has already been loaded earlier
 	jp Intro
 

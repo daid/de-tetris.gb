@@ -45,6 +45,8 @@ VBlankHandler:
 	xor a
 	ldh [hVBlankFlag], a
 
+	call audioUpdate
+
 	ld c, LOW(rP1)
 	ld a, $20 ; Select D-pad
 	ldh [c], a
