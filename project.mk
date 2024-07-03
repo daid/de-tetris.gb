@@ -11,10 +11,10 @@ PADVALUE := 0xFF
 VERSION := 0
 
 # 4-ASCII letter game ID.
-GAMEID := BOIL
+GAMEID := DTET
 
 # Game title, up to 11 ASCII chars.
-TITLE := BOILERPLATE
+TITLE := DE-TETRIS
 
 # New licensee, 2 ASCII chars.
 # Homebrew games FTW!.
@@ -36,7 +36,7 @@ MBC := 0x00
 SRAMSIZE := 0x00
 
 # ROM name.
-ROMNAME := boilerplate
+ROMNAME := de-tetris
 ROMEXT  := gb
 
 
@@ -47,7 +47,7 @@ ROMEXT  := gb
 
 # Export all labels.
 # This means they must all have unique names, but they will all show up in the .sym and .map files.
-# ASFLAGS += -E
+ASFLAGS += -E
 
 # Game Boy Color compatible.
 # FIXFLAGS += -c
@@ -61,7 +61,7 @@ ROMEXT  := gb
 # LDFLAGS += -d
 
 # No banked WRAM mode.
-# LDFLAGS += -w
+LDFLAGS += -w
 
 # 32k mode.
 # LDFLAGS += -t

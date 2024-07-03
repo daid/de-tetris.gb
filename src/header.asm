@@ -52,8 +52,11 @@ Reset::
 	dec b
 	jr nz, .copyOAMDMA
 
-	WARN "Edit to set palettes here"
 	; CGB palettes maybe, DMG ones always
+	ld  a, %11100100
+	ldh [hBGP], a
+	ldh [hOBP0], a
+	ldh [hOBP1], a
 
 	; You will also need to reset your handlers' variables below
 	; I recommend reading through, understanding, and customizing this file

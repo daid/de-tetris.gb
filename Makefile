@@ -22,7 +22,7 @@ ROM = bin/${ROMNAME}.${ROMEXT}
 # Argument constants
 INCDIRS  = src/ include/
 WARNINGS = all extra
-ASFLAGS  = -p ${PADVALUE} $(addprefix -I,${INCDIRS}) $(addprefix -W,${WARNINGS}) -h
+ASFLAGS  = -p ${PADVALUE} $(addprefix -I,${INCDIRS}) $(addprefix -W,${WARNINGS})
 LDFLAGS  = -p ${PADVALUE}
 FIXFLAGS = -p ${PADVALUE} -i "${GAMEID}" -k "${LICENSEE}" -l ${OLDLIC} -m ${MBC} -n ${VERSION} -r ${SRAMSIZE} -t ${TITLE}
 
@@ -62,6 +62,10 @@ assets/%.2bpp: assets/%.png
 assets/%.1bpp: assets/%.png
 	@mkdir -p "${@D}"
 	${RGBGFX} -d 1 -o $@ $<
+
+assets/%.tileset: assets/%.png
+	@mkdir -p "${@D}"
+	${RGBGFX} -o $@ $< -T -u
 
 # Define how to compress files using the PackBits16 codec
 # Compressor script requires Python 3
