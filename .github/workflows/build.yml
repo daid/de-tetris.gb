@@ -21,7 +21,7 @@ jobs:
       run: |
        sudo apt-get -qq update
        sudo apt-get install -yq bison libpng-dev pkg-config
-       git clone git@github.com:gbdev/rgbds.git
+       git clone https://github.com/gbdev/rgbds.git
        cd rgbds
        make install
        cd ..
