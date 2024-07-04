@@ -138,6 +138,7 @@ MACRO FREQ
         REDEF VAL = 1
     ENDC
     dw VAL | $C000
+    println(VAL)
     PURGE VAL
 ENDM
 

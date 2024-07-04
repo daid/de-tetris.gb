@@ -8,6 +8,11 @@ Intro::
 	ld bc, titleScreenGFX.end - titleScreenGFX
 	call LCDMemcpy
 
+	ld de, blockGFX
+	ld hl, $8000
+	ld bc, blockGFX.end - blockGFX
+	call LCDMemcpy
+
 	ld b, 18
 	ld de, titleScreenMap
 	ld hl, $9800
@@ -27,7 +32,7 @@ Intro::
 	rst WaitVBlank
 	ldh a, [hPressedKeys]
 	and PADF_START
-	jp  nz, Crash
+	jp  nz, mainGameLoop
 	jr :-
 
 
@@ -36,4 +41,14 @@ INCBIN "assets/title.tileset"
 .end:
 titleScreenMap::
 INCBIN "assets/title.tilemap"
+.end:
+blockGFX:
+	dw `33333333
+	dw `32222223
+	dw `32333323
+	dw `32311323
+	dw `32311323
+	dw `32333323
+	dw `32222223
+	dw `33333333
 .end:
